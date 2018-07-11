@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PUBG</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/d1.css">
+</head>
+<body>
+	<header>
+		<div class="logo_box">
+			<img src="img/logo.png" class="logo" />	
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="#"></a>官网首页</li>
+				<li><a href="#"></a>绑定查询</li>
+				<li><a href="#"></a>国服预约</li>
+				<li><a href="#"></a>老兵绑定</li>
+				<li><a href="#"></a>游戏特色</li>
+				<li><a href="#"></a>社区APP</li>
+				<li><a href="#"></a>网吧认证</li>
+			</ul>
+		</div>
+		<div class="button_box">
+			<img src="img/logo1.png" class="logo1"/>
+		</div>
+		
+	</header>
+	<div id="container">
+		<div class="box">
+			<video style="width:100%" src="first.mp4" autoplay="autoplay" loop="loop"></video>
+		</div>
+
+		<div class="box">
+			<video style="width:100%" src="2nd.mp4" autoplay="autoplay" loop="loop"></video>
+		</div>
+
+		<div class="box">
+			<video style="width: 100%" src="3rd.mp4" autoplay="autoplay" loop="loop"></video>
+		</div>
+	</div>
+	
+
+	
+	<script type="text/javascript">
+		document.querySelector(".box1 video").play();
+		var num = 0;
+		function down(){
+			var box = document.querySelector("box");
+			document.addEventListener('scroll',function(){
+				var visibleBottom = window.scrollY + document.documentElement.clientHeight;
+				var visibleTop = window.scrollY;
+				for(var i = 0;i<box.length;i++){
+					var centerY = box[i].offsetTop+(box[i].offsetHeight/2);
+					 if(centerY>visibleTop&¢erY<visibleBottom){
+					   box[i].innerHTML = '区域可见'
+					   box[i].setAttribute("class",'box animate')
+					   console.log('第'+i+'个区域可见');
+					  }else{
+					   box[i].innerHTML = '';
+					   box[i].setAttribute("class",'box')
+					   console.log('第'+i+'个区域不可见');
+					  }
+				}
+			})
+		}
+		
+		window.addEventListener('keydown',down,true);
+
+	</script>
+</body>
+</html>
